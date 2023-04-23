@@ -75,9 +75,9 @@ def Dijkstra(graph: Graph, start: int, destination: int):
     if graph.getVertex(start) == None or graph.getVertex(destination) == None:
         return []
     l_i = np.full(graph.getSize()+1, float('inf'))
-    l_i[start] = 0
     Pred = np.full(graph.getSize()+1, -1)
     heap = []
+    l_i[start] = 0
     heapq.heapify(heap)
     heapq.heappush(heap, (0, start))
     curr_vertex = start
