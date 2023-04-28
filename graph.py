@@ -118,16 +118,15 @@ def K_Dijkstra(graph: Graph, start: int, destination: int, k: int):
     """
     paths = []
     heap = [(0, [], start)]
-    while heap and len(paths) < k:
+    while heap and len(paths) <= k:
         cost, path, current_node = heapq.heappop(heap)
         path = path + [current_node]
         if current_node and current_node == destination:
-            paths.append(path)
+            paths.append((path, cost))
         elif graph.getVertex(current_node):
             for neighbor, weight in graph.getVertex(current_node).getneighbors().items():
                 if neighbor.getVertex() not in path:
                     heapq.heappush(heap, (cost + weight, path, neighbor.getVertex()))
 
+    
     return paths
-
-
