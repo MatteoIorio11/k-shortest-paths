@@ -118,7 +118,7 @@ def K_Dijkstra(graph: Graph, start: int, destination: int, k: int):
     """
     paths = []
     heap = [(0, [], start)]
-    while heap and len(paths) <= k:
+    while heap and len(paths) < k:
         cost, path, current_node = heapq.heappop(heap)
         path = path + [current_node]
         if current_node and current_node == destination:
