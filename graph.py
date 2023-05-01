@@ -130,3 +130,22 @@ def K_Dijkstra(graph: Graph, start: int, destination: int, k: int):
 
     
     return paths
+
+def K_DijkstraV2(graph: nx.Graph, start: int, destination: int, k: int):
+    paths = []
+    heap = [(0, [], start)]
+    while heap and len(paths) < k:
+        cost, path, current_node = heapq.heappop(heap)
+        path = path + [current_node]
+        if current_node and current_node == destination:
+            paths.append((path, cost))
+        else:
+            for neighbor in graph[current_node]:
+                if neighbor not in path:
+                    heapq.heappush(heap, (cost + graph.get_edge_data(current_node, neighbor)["weight"], path, neighbor))
+
+    return paths
+
+import networkx as nx
+G = nx.complete_graph(10)
+print(G)
