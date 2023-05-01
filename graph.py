@@ -145,7 +145,3 @@ def K_DijkstraV2(graph: nx.Graph, start: int, destination: int, k: int):
                     heapq.heappush(heap, (cost + graph.get_edge_data(current_node, neighbor)["weight"], path, neighbor))
 
     return paths
-
-import networkx as nx
-G = nx.complete_graph(10)
-print(G)
