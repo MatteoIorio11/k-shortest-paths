@@ -1,9 +1,9 @@
 import random
 import csv
+import os
 
 
-
-n = 5
+n = len(os.listdir("./graphs"))
 
 
 
