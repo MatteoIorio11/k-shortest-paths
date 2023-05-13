@@ -24,7 +24,6 @@ for i in range(1, 5):
 
     with open(f"./graphs/graph{n}.csv", "w") as f:
         csv_writer = csv.writer(f)
-        csv_writer.writerow(["Node1, Node2, Cost"])
         csv_writer.writerows(graph)
         
     n = n+1
